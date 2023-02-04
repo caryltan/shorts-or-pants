@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+//components
+import SelectLocation from './components/SelectLocation.js'
+
 import './App.css';
 
 function App() {
@@ -27,10 +30,12 @@ function App() {
     <div className="App">
       <h1>Pants or Shorts</h1>
       <h2>What to wear today based on the weather</h2>
-      
+      <SelectLocation />
+
       {weatherData &&  
-      <h3>{weatherData.current_weather.temperature}</h3>
+        <h3>The temperature is {weatherData.current_weather.temperature}</h3>
       }
+
     </div>
   );
 }
