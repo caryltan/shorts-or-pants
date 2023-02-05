@@ -8,7 +8,7 @@ function App() {
   
   const [weatherData, setWeatherData] = useState();
   const [locations, setLocations] = useState([]);
-  const [selectCountry, setSelectedCountry] = useState([]);
+  const [selectCountry, setSelectedCountry] = useState("Canada");
   const [selectCity, setSelectedCity] = useState([]);
 
 
@@ -68,7 +68,7 @@ function App() {
       <h1>Pants or Shorts</h1>
       <h2>What to wear today based on the weather</h2>
 
-      <DropdownCountries locations={locations} handleChange={handleChange}/> 
+      <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
       <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
 
       {weatherData &&  
