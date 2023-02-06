@@ -1,7 +1,7 @@
-function DropdownCountries ({ locations, handleChange }){
+function DropdownCountries ({ locations, selectCountry, handleChange }){
     return (
         <div>
-            <select onChange={handleChange}>
+            <select onChange={handleChange} value={selectCountry} className="dropdown">
             {
                 locations && locations.map((location, index) => {
                     return (

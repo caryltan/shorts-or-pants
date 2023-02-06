@@ -8,7 +8,7 @@ function App() {
   
   const [weatherData, setWeatherData] = useState();
   const [locations, setLocations] = useState([]);
-  const [selectCountry, setSelectedCountry] = useState([]);
+  const [selectCountry, setSelectedCountry] = useState("Canada");
   const [selectCity, setSelectedCity] = useState([]);
 
 
@@ -22,26 +22,123 @@ function App() {
     const response = await fetch(url);
     const json = await response.json();
     setWeatherData(json);
+    console.log(json.current_weather)
   }
 
 
   const locationsList = [
-      {
-          country: "Mexico",
-          cities: [
-              {cityname: "Cancun", longitude: -86.85, latitude: 21.17},
-              {cityname: "Mexico City", longitude: -99.13, latitude: 19.43},
-              {cityname: "Guadalajara", longitude: -103.39, latitude: 20.67}
-          ]
-      },
-      {
-          country: "Canada",
-          cities: [
-              {cityname: "Toronto", longitude: -79.42, latitude: 43.70},
-              {cityname: "Vancouver", longitude: -123.12, latitude: 49.25},
-              {cityname: "Iqaluit", longitude: -68.52, latitude: 63.75}
-          ] 
-      }
+  {
+    country: "Argentina",
+    cities: [
+        {cityname: "Buenos Aires", longitude: -58.38, latitude: -34.61},
+        {cityname: "Mendoza", longitude: -68.83, latitude: -32.89},
+        {cityname: "Rosario", longitude: -60.64, latitude: -32.95}
+    ] 
+  },
+  {
+    country: "Australia",
+    cities: [
+        {cityname: "Sydney", longitude: 151.21, latitude: -33.87},
+        {cityname: "Melbourne", longitude: 144.96, latitude: -37.81},
+        {cityname: "Brisbane", longitude: 153.03, latitude: -27.47}
+    ] 
+  },
+  {
+    country: "Canada",
+    cities: [
+        {cityname: "Toronto", longitude: -79.42, latitude: 43.70},
+        {cityname: "Vancouver", longitude: -123.12, latitude: 49.25},
+        {cityname: "Iqaluit", longitude: -68.52, latitude: 63.75}
+    ] 
+  },
+  {
+    country: "Colombia",
+    cities: [
+        {cityname: "Bogotá", longitude: -74.08, latitude: 4.61},
+        {cityname: "Cartagena", longitude: -75.51, latitude: 10.40},
+        {cityname: "Medellín", longitude: -75.56, latitude: 6.25}
+    ] 
+  },
+  {
+    country: "Ethiopia",
+    cities: [
+        {cityname: "Addis Ababa", longitude: 38.75, latitude: 9.02},
+        {cityname: "Bahir Dar", longitude: 37.39, latitude: 11.59},
+        {cityname: "Dire Dawa", longitude: 41.87, latitude: 9.59}
+    ] 
+  },
+  {
+    country: "Germany",
+    cities: [
+        {cityname: "Hamburg", longitude: 9.99, latitude: 53.55},
+        {cityname: "Düsseldorf", longitude: 6.78, latitude: 51.22},
+        {cityname: "Frankfurt", longitude: 10.53, latitude: 49.68}
+    ] 
+  },
+  {
+    country: "Iceland",
+    cities: [
+        {cityname: "Reykjavík", longitude: -21.90, latitude: 64.14},
+        {cityname: "Hafnarfjordur", longitude: -21.94, latitude: 64.07},
+        {cityname: "Kópavogur", longitude: -21.91, latitude: 64.11}
+    ] 
+  },
+  {
+    country: "India",
+    cities: [
+        {cityname: "Mumbai", longitude: 72.88, latitude: 19.07},
+        {cityname: "Kolkata", longitude: 88.36, latitude: 22.56},
+        {cityname: "Jaipur", longitude: 75.79, latitude: 26.92}
+    ] 
+  },
+  {
+    country: "Indonesia",
+    cities: [
+        {cityname: "Jakarta", longitude: 106.82, latitude: -6.18},
+        {cityname: "Surabaya", longitude: 112.75, latitude: -7.25},
+        {cityname: "Makassar", longitude: 119.43, latitude: -5.15}
+    ] 
+  },
+  {
+      country: "Mexico",
+      cities: [
+          {cityname: "Cancun", longitude: -86.85, latitude: 21.17},
+          {cityname: "Mexico City", longitude: -99.13, latitude: 19.43},
+          {cityname: "Guadalajara", longitude: -103.39, latitude: 20.67}
+      ]
+  },
+  {
+    country: "Nigeria",
+    cities: [
+        {cityname: "Lagos", longitude: 3.39, latitude: 6.45},
+        {cityname: "Kano", longitude: 8.52, latitude: 12.00},
+        {cityname: "Port Harcourt", longitude: 7.01, latitude: 4.78}
+    ] 
+  },
+  {
+    country: "Spain",
+    cities: [
+        {cityname: "Barcelona", longitude: 2.16, latitude: 41.39},
+        {cityname: "Madrid", longitude: -3.70, latitude: 40.42},
+        {cityname: "Seville", longitude: -5.97, latitude: 37.38}
+    ] 
+  },
+  {
+    country: "Turkey",
+    cities: [
+        {cityname: "Istanbul", longitude: 28.95, latitude: 41.01},
+        {cityname: "Bursa", longitude: 29.06, latitude: 40.20},
+        {cityname: "Konya", longitude: 32.48, latitude: 37.87}
+    ] 
+  },
+  {
+    country: "Vietnam",
+    cities: [
+        {cityname: "Ho Chi Minh City", longitude: 106.63, latitude: 10.82},
+        {cityname: "Hanoi", longitude: 105.84, latitude: 21.02},
+        {cityname: "Da Nang", longitude: 108.22, latitude: 16.07}
+    ] 
+  }
   ]
 
   const handleChange = (e) => {
@@ -65,21 +162,24 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Pants or Shorts</h1>
-      <h2>What to wear today based on the weather</h2>
+      <div className="wrapper">
+        <h1>Pants or Shorts</h1>
+        <h2>What to wear today based on the weather</h2>
 
-      <DropdownCountries locations={locations} handleChange={handleChange}/> 
-      <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
+        <h2>Choose a location:</h2>
+        <div className="dropdownContainer">
+          <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
+          <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
+        </div>
+        {weatherData &&  
 
-      {weatherData &&  
+          <h3>The temperature is {weatherData.current_weather.temperature}° Celsius</h3>
+        }
 
-        <h3>The temperature is {weatherData.current_weather.temperature}</h3>
-      }
-
-      {weatherData &&
-        <DisplayPicture currentTemp={weatherData.current_weather.temperature}/>
-      }
-      
+        {weatherData &&
+          <DisplayPicture currentTemp={weatherData.current_weather.temperature}/>
+        }
+      </div>
     </div>
   );  
 }
