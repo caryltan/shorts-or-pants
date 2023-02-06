@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import React  from 'react';
 import moment from 'moment';
+
 import DropdownCountries from './components/DropdownCountries.js';
 import DropdownCities from "./components/DropdownCities.js";
-import './App.css';
+import './App.scss';
 import DisplayPicture from './components/DisplayPicture.js';
 
 function App() {
@@ -168,7 +169,7 @@ function App() {
   
 
   return (
-    <div className={"App" + (numericalHour >= 8 && numericalHour <=17 ? 'dayTime' : 'nightTime')}>
+    <div className={"App " + (numericalHour >= 8 && numericalHour <=17 ? 'dayTime' : 'nightTime')}>
 
       <div className="wrapper">
         <h1>Pants or Shorts</h1>
