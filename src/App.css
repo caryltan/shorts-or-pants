@@ -1,13 +1,18 @@
 .App {
   text-align: center;
   background-color: #5fcaff;
-  color: white;
+  color: #34312d;
   margin: 0 auto;
 }
 
 h1 {
   margin: 0 auto;
   padding: 20px 0;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .image-container {
@@ -18,4 +23,16 @@ h1 {
 .image-container img {
   width: 100%;
   max-width: 500px;
+}
+
+.dropdown {
+  background-color: #eff8e2;
+  border: none;
+  padding: 10px 50px;
+}
+
+.dropdownContainer {
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
 }

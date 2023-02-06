@@ -4,7 +4,7 @@ function DropdownCities ({ locations, selectCountry, getCityCoordinates }){
             {locations && locations.map((location) => {
                 if (selectCountry === location.country) {
                     return (
-                        <select onChange={getCityCoordinates}>
+                        <select onChange={getCityCoordinates} className="dropdown">
                             <option>Select One</option>
                             {
                                 location.cities && location.cities.map((city, index) => {

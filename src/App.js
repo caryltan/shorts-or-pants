@@ -162,21 +162,24 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Pants or Shorts</h1>
-      <h2>What to wear today based on the weather</h2>
+      <div className="wrapper">
+        <h1>Pants or Shorts</h1>
+        <h2>What to wear today based on the weather</h2>
 
-      <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
-      <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
+        <h2>Choose a location:</h2>
+        <div className="dropdownContainer">
+          <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
+          <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
+        </div>
+        {weatherData &&  
 
-      {weatherData &&  
+          <h3>The temperature is {weatherData.current_weather.temperature}° Celsius</h3>
+        }
 
-        <h3>The temperature is {weatherData.current_weather.temperature}° Celsius</h3>
-      }
-
-      {weatherData &&
-        <DisplayPicture currentTemp={weatherData.current_weather.temperature}/>
-      }
-      
+        {weatherData &&
+          <DisplayPicture currentTemp={weatherData.current_weather.temperature}/>
+        }
+      </div>
     </div>
   );  
 }
