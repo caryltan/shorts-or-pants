@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import React  from 'react';
+import moment from 'moment';
 import DropdownCountries from './components/DropdownCountries.js';
 import DropdownCities from "./components/DropdownCities.js";
 import './App.css';
@@ -18,6 +20,7 @@ function App() {
       latitude: selectCity.latitude ? selectCity.latitude : 52,
       longitude: selectCity.longitude ? selectCity.longitude : 52,
       current_weather: true,
+      timezone: "auto"
     })    
     const response = await fetch(url);
     const json = await response.json();
@@ -160,8 +163,13 @@ function App() {
     setLocations(locationsList);
   }, [selectCity]);
   
+  
+  const numericalHour = weatherData && moment(weatherData.current_weather.time).format("k");
+  
+
   return (
-    <div className="App">
+    <div className={"App" + (numericalHour >= 8 && numericalHour <=17 ? 'dayTime' : 'nightTime')}>
+
       <div className="wrapper">
         <h1>Pants or Shorts</h1>
         <h2>What to wear today based on the weather</h2>
@@ -172,12 +180,11 @@ function App() {
           <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
         </div>
         {weatherData &&  
-
           <h3>The temperature is {weatherData.current_weather.temperature}° Celsius</h3>
         }
 
         {weatherData &&
-          <DisplayPicture currentTemp={weatherData.current_weather.temperature}/>
+          <DisplayPicture weatherData={weatherData}/>
         }
       </div>
     </div>
