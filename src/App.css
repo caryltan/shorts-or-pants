@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@400;700&display=swap');
+
 .App {
   text-align: center;
   background-color: #5fcaff;
   color: #34312d;
   margin: 0 auto;
+  font-family: 'Hind', sans-serif;
 }
 
 h1 {
   margin: 0 auto;
   padding: 20px 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wrapper {
@@ -18,6 +22,8 @@ h1 {
 .image-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .image-container img {
@@ -28,7 +34,7 @@ h1 {
 .dropdown {
   background-color: #eff8e2;
   border: none;
-  padding: 10px 50px;
+  padding: 10px 60px;
 }
 
 .dropdownContainer {
