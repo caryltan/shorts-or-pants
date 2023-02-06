@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import React  from 'react';
 import moment from 'moment';
-
+//components
 import DropdownCountries from './components/DropdownCountries.js';
 import DropdownCities from "./components/DropdownCities.js";
-import './App.scss';
 import DisplayPicture from './components/DisplayPicture.js';
+import './App.scss';
 
 function App() {
   
@@ -21,7 +21,8 @@ function App() {
       latitude: selectCity.latitude ? selectCity.latitude : 52,
       longitude: selectCity.longitude ? selectCity.longitude : 52,
       current_weather: true,
-      timezone: "auto"
+      timezone: "auto",
+      daily: "weathercode",
     })    
     const response = await fetch(url);
     const json = await response.json();
@@ -164,7 +165,7 @@ function App() {
     setLocations(locationsList);
   }, [selectCity]);
   
-  
+  //getting hour of the day for night/day 
   const numericalHour = weatherData && moment(weatherData.current_weather.time).format("k");
   
 
