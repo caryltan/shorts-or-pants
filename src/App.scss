@@ -23,18 +23,20 @@ h1 {
 .wrapper {
   width: 80%;
   margin: 0 auto;
+  position: relative;
 }
 
-.image-container {
+.imageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.image-container img {
+.imageContainer img {
   width: 100%;
   max-width: 500px;
+  z-index: 1;
 }
 
 .dropdown {
@@ -47,4 +49,16 @@ h1 {
   display: flex;
   justify-content:space-evenly;
   align-items: center;
+}
+
+.displayImageContainer {
+  .imageContainer {
+  position: relative;
+}
+  .sunMoonContainer{
+    position: absolute;
+    max-width: 200px;
+    right: 0;
+    top: 0;
+  }
 }
