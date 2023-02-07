@@ -186,7 +186,7 @@ function App() {
           <h3>The temperature is {weatherData.current_weather.temperature}° Celsius</h3>
         }
 
-        <div class="displayImageContainer">
+        <div className="displayImageContainer">
         {weatherData && 
           <DisplayPicture weatherData={weatherData} />
         } 

@@ -57,8 +57,22 @@ h1 {
 }
   .sunMoonContainer{
     position: absolute;
-    max-width: 200px;
-    right: 0;
-    top: 0;
+    max-width: 100px;
+    left: 75%;
+    bottom: 0;
+    .sunMoon {
+      // animation: appear 2s forwards;
+      // transition: 2s ease-in-out;
+    }
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(-400px);
   }
 }
