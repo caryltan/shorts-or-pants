@@ -183,10 +183,6 @@ function App() {
           <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
           <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
         </div>
-
-        {/* {weatherData &&  
-          <h3>The temperature is {weatherData.current_weather.temperature}° Celsius</h3>
-        } */}
       
         <div className="displayImageContainer">
           <div className="imageContainer">

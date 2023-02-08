@@ -3,12 +3,33 @@ import moon from "../assets/moon-solo.png";
 import { motion } from "framer-motion"
 
 function SunNightAnimation ( nightDay ) {
-    
+    const viewPortWidth = window.innerWidth;
+
     if (nightDay.nightDay >= 8 && nightDay.nightDay <=17) {
         return (
             <motion.div 
             key={sun}
             animate={{ y: -350 }}
+            transition={{ ease: "easeOut", duration: 1 }}
+            className="sunMoonContainer">
+                <img src={sun} className="sunMoon"/>
+            </motion.div>
+        ) 
+    } else if (viewPortWidth < 768 && nightDay.nightDay >= 8 && nightDay.nightDay <=17) {
+        return (
+            <motion.div 
+            key={sun}
+            animate={{ y: -250 }}
+            transition={{ ease: "easeOut", duration: 1 }}
+            className="sunMoonContainer">
+                <img src={sun} className="sunMoon"/>
+            </motion.div>
+        ) 
+    } else if (viewPortWidth < 768) {
+        return (
+            <motion.div 
+            key={sun}
+            animate={{ y: -250 }}
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={sun} className="sunMoon"/>
