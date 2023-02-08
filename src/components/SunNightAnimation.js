@@ -1,8 +1,6 @@
 import sun from "../assets/sun-solo.png";
 import moon from "../assets/moon-solo.png";
 import { motion } from "framer-motion"
-import { useEffect } from "react";
-
 
 function SunNightAnimation ( nightDay ) {
     
@@ -10,20 +8,17 @@ function SunNightAnimation ( nightDay ) {
         return (
             <motion.div 
             key={sun}
-            animate={{ y: -400, opacity: 1 }}
+            animate={{ y: -350 }}
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={sun} className="sunMoon"/>
             </motion.div>
-            // <div className="sunMoonContainer">
-            //     <img src={sun} className="sunMoon"/>
-            // </div>
         ) 
     } else {
         return (
             <motion.div 
             key={moon}
-            animate={{ y: -400 }} 
+            animate={{ y: -350 }} 
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={moon} className="sunMoon"/>

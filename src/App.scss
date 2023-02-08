@@ -4,20 +4,59 @@
   text-align: center;
   margin: 0 auto;
   font-family: 'Hind', sans-serif;
+  font-size: 16px;
+  height: 100vh;
   &.dayTime {
     background-color: #5fcaff;
     color: #34312d;
+    a {
+      text-decoration: none;
+      &:visited {
+        color: #34312d;
+      }
+    }
   }
   &.nightTime{
     background-color: #14110f;
     color: #eff8e2;
+    a {
+      &:visited {
+        color: #eff8e2;
+      }
+    }
   }
 }
+
 
 h1 {
   margin: 0 auto;
   padding: 20px 0;
   font-family: 'Montserrat', sans-serif;
+  padding-bottom: 0;
+  font-size: 2.5em;
+}
+
+h2 {
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 1.75em;
+  margin: 0 auto;
+}
+
+footer {
+  padding: 25px 0;
+  margin-top: 50px;
+}
+
+.tempText {
+  font-size: 1em;
+  margin: 0 auto;
 }
 
 .wrapper {
@@ -35,7 +74,8 @@ h1 {
 
 .imageContainer img {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
+  height: auto;
   z-index: 1;
 }
 
@@ -57,15 +97,11 @@ h1 {
 }
   .sunMoonContainer{
     position: absolute;
-    max-width: 100px;
-    left: 75%;
+    max-width: 125px;
+    left: 65%;
     bottom: 0;
-    .sunMoon {
-      // animation: appear 2s forwards;
-      // transition: 2s ease-in-out;
     }
   }
-}
 
 @keyframes appear {
   0% {
