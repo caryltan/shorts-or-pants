@@ -4,7 +4,6 @@
   margin: 0 auto;
   font-family: "Hind", sans-serif;
   font-size: 16px;
-  height: 100vh;
 }
 @media (max-width: 428px) {
   .App {
@@ -51,7 +50,7 @@ h3 {
 }
 @media (max-width: 428px) {
   h3 {
-    margin-top: 50px;
+    margin-top: 25px;
   }
 }
 
@@ -84,7 +83,7 @@ footer {
 }
 @media (max-width: 428px) {
   .imageContainer {
-    padding-top: 50px;
+    padding-top: 25px;
   }
 }
 

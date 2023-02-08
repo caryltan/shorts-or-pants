@@ -1,23 +1,23 @@
 function WeatherConditionText ( weatherCondition ) {
     if (weatherCondition.condition >= 51 && weatherCondition.condition <= 67) {
         return (
-         <div>It's Raining</div>
+            <p>But bring an umbrella, it's raining!</p>
         ) 
     } else if (weatherCondition.condition >= 71 && weatherCondition.condition <= 77) {
         return (
-            <div>It's Snow'in</div>
+            <p>Get your mitts on, it's snowing!</p>
         ) 
     } else if (weatherCondition.condition >= 95 && weatherCondition.condition <= 99) {
         return (
-            <div>It's Thundermnnnclap clap popp</div>
+            <p>But watch out! It's thundering!</p>
         ) 
     } else if (weatherCondition.condition >= 0 && weatherCondition.condition <=  3) {
         return (
-            <div>Have a beautiful day!</div>
+            <p>Have a beautiful day!</p>
         ) 
     } else {
         return (
-            <div>Weather</div>
+            <p>Have a great day!</p>
         )
     }
 }
