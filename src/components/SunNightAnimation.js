@@ -4,8 +4,9 @@ import { motion } from "framer-motion"
 
 function SunNightAnimation ( nightDay ) {
     const viewPortWidth = window.innerWidth;
+    console.log(viewPortWidth);
 
-    if (nightDay.nightDay >= 8 && nightDay.nightDay <=17) {
+    if (viewPortWidth > 768 && nightDay.nightDay >= 8 && nightDay.nightDay <=17) {
         return (
             <motion.div 
             key={sun}
@@ -15,7 +16,7 @@ function SunNightAnimation ( nightDay ) {
                 <img src={sun} className="sunMoon"/>
             </motion.div>
         ) 
-    } else if (viewPortWidth < 768 && nightDay.nightDay >= 8 && nightDay.nightDay <=17) {
+    } else if (viewPortWidth <= 428 && nightDay.nightDay >= 8 && nightDay.nightDay <=17) {
         return (
             <motion.div 
             key={sun}
@@ -25,16 +26,36 @@ function SunNightAnimation ( nightDay ) {
                 <img src={sun} className="sunMoon"/>
             </motion.div>
         ) 
-    } else if (viewPortWidth < 768) {
+    } else if (viewPortWidth <= 428 && nightDay.nightDay >= 18 ) {
         return (
             <motion.div 
-            key={sun}
+            key={moon}
             animate={{ y: -250 }}
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
-                <img src={sun} className="sunMoon"/>
+                <img src={moon} className="sunMoon"/>
             </motion.div>
         ) 
+    } else if (viewPortWidth <= 428 && nightDay.nightDay <= 7 ) {
+        return (
+            <motion.div 
+            key={moon}
+            animate={{ y: -250 }}
+            transition={{ ease: "easeOut", duration: 1 }}
+            className="sunMoonContainer">
+                <img src={moon} className="sunMoon"/>
+            </motion.div>
+        ) 
+    } else if (viewPortWidth > 768 && nightDay.nightDay >= 18){
+        return (
+            <motion.div 
+            key={moon}
+            animate={{ y: -350 }} 
+            transition={{ ease: "easeOut", duration: 1 }}
+            className="sunMoonContainer">
+                <img src={moon} className="sunMoon"/>
+            </motion.div>
+        )
     } else {
         return (
             <motion.div 
