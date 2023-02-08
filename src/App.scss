@@ -6,6 +6,9 @@
   font-family: 'Hind', sans-serif;
   font-size: 16px;
   height: 100vh;
+  @media (max-width:428px) {
+    height: 100%;
+  }
   &.dayTime {
     background-color: #5fcaff;
     color: #34312d;
@@ -38,10 +41,16 @@ h1 {
 
 h2 {
   margin: 0 auto;
+  @media (max-width:428px) {
+    font-size: 1em;
+  }
 }
 
 h3 {
   font-size: 1em;
+  @media (max-width:428px) {
+    margin-top: 50px;
+  }
 }
 
 p {
@@ -70,6 +79,9 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media (max-width:428px) {
+    padding-top: 50px;
+  }
 }
 
 .imageContainer img {
@@ -87,8 +99,20 @@ footer {
 
 .dropdownContainer {
   display: flex;
-  justify-content:space-evenly;
-  align-items: center;
+  justify-content: space-evenly;
+  @media (max-width:428px) {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    .dropdown {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      width: 100%;
+      display: flex;
+      text-align: center;
+    }
+  }
 }
 
 .displayImageContainer {
