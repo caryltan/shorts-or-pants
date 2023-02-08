@@ -1,55 +1,53 @@
-@import url("https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@400;700&display=swap');
+
 .App {
   text-align: center;
   margin: 0 auto;
-  font-family: "Hind", sans-serif;
+  font-family: 'Hind', sans-serif;
   font-size: 16px;
-}
-@media (max-width: 428px) {
-  .App {
+  @media (max-width:428px) {
     height: 100%;
   }
+  &.dayTime {
+    background-color: #5fcaff;
+    color: #34312d;
+    a {
+      text-decoration: none;
+      &:visited {
+        color: #34312d;
+      }
+    }
+  }
+  &.nightTime{
+    background-color: #14110f;
+    color: #eff8e2;
+    a {
+      &:visited {
+        color: #eff8e2;
+      }
+    }
+  }
 }
-.App.dayTime {
-  background-color: #5fcaff;
-  color: #34312d;
-}
-.App.dayTime a {
-  text-decoration: none;
-}
-.App.dayTime a:visited {
-  color: #34312d;
-}
-.App.nightTime {
-  background-color: #14110f;
-  color: #eff8e2;
-}
-.App.nightTime a:visited {
-  color: #eff8e2;
-}
+
 
 h1 {
   margin: 0 auto;
   padding: 20px 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding-bottom: 0;
   font-size: 2.5em;
 }
 
 h2 {
   margin: 0 auto;
-}
-@media (max-width: 428px) {
-  h2 {
+  @media (max-width:428px) {
     font-size: 1em;
   }
 }
 
 h3 {
   font-size: 1em;
-}
-@media (max-width: 428px) {
-  h3 {
+  @media (max-width:428px) {
     margin-top: 25px;
   }
 }
@@ -80,9 +78,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-@media (max-width: 428px) {
-  .imageContainer {
+  @media (max-width:428px) {
     padding-top: 25px;
   }
 }
@@ -103,42 +99,32 @@ footer {
 .dropdownContainer {
   display: flex;
   justify-content: space-evenly;
-}
-@media (max-width: 428px) {
-  .dropdownContainer {
+  @media (max-width:428px) {
     flex-direction: column;
     display: flex;
     width: 100%;
     justify-content: center;
-  }
-  .dropdownContainer .dropdown {
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    width: 100%;
-    display: flex;
-    text-align: center;
+    .dropdown {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      width: 100%;
+      display: flex;
+      text-align: center;
+    }
   }
 }
 
-.displayImageContainer .imageContainer {
+.displayImageContainer {
+  .imageContainer {
   position: relative;
 }
-.displayImageContainer .sunMoonContainer {
-  position: absolute;
-  max-width: 125px;
-  left: 65%;
-  bottom: 0;
-}
-
-@-webkit-keyframes appear {
-  0% {
-    opacity: 0;
+  .sunMoonContainer{
+    position: absolute;
+    max-width: 125px;
+    left: 65%;
+    bottom: 0;
+    }
   }
-  100% {
-    opacity: 100%;
-    transform: translateY(-400px);
-  }
-}
 
 @keyframes appear {
   0% {

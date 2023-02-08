@@ -1,38 +1,63 @@
+import React  from 'react';
+//img assets
 import penguinWarm from "../assets/summer-penguin-swim.png";
 import penguinCold from "../assets/winter-penguin-icecream.png";
 import sleepySloth from "../assets/sleepy-sloth-coffee.png";
 import hamsterReading from "../assets/indoor-hamster-reading.png";
+import penguinJuice from "../assets/penguin-juice.png";
+import tigerHike from "../assets/tiger-hike.png";
 
-function DisplayPicture ( currentTemp ) {
-    if (currentTemp.currentTemp >= 20) {
+function DisplayPicture ( weatherData ) {
+    
+    const currentTemp = weatherData.weatherData.current_weather.temperature;
+
+    if (currentTemp >= 25) {
         return (
-            <div className="image-container">
+            <>
                 <img src={penguinWarm} />
-                <p>Put on them shorts!</p>
-            </div>
+                <p className="tempText">It's {currentTemp}°C.</p>
+                <p>Wear them shorts!</p>
+            </>
         ) 
-    } else if (currentTemp.currentTemp >=10 && currentTemp.currentTemp <=20) {
+    } else if (currentTemp >=20 && currentTemp <=25) {
         return (
-            <div className="image-container">
-                <img src={sleepySloth} />
-                <p>Not too cold, not too hot. Maybe stay in?</p>
-            </div>
+            <>
+                <img src={penguinJuice} />
+                <p className="tempText">It's {currentTemp}°C.</p>
+                <p>Not too hot. Max shorts weather.</p>
+            </>
         ) 
-    } 
-    else if (currentTemp.currentTemp >=-5 && currentTemp.currentTemp <=10) {
+    } else if (currentTemp >=15 && currentTemp <=20) {
         return (
-            <div className="image-container">
+            <>
+                <img src={tigerHike} />
+                <p className="tempText">It's {currentTemp}°C.</p> 
+                <p>PERFECT hiking weather. Wear shorts!</p>
+            </>
+        ) 
+    } else if (currentTemp >=10 && currentTemp <=15) {
+        return (
+            <>
                 <img src={hamsterReading} />
-                <p>Kinda chilly.</p>
-            </div>
+                <p className="tempText">It's {currentTemp}°C.</p> 
+                <p>Kinda chilly. You can wear shorts...INSIDE.</p>
+            </>
         ) 
-    } 
-    else {
+    } else if (currentTemp >=0 && currentTemp <=10) {
         return (
-            <div className="image-container">
+            <>
+                <img src={sleepySloth} />
+                <p className="tempText">It's {currentTemp}°C.</p> 
+                <p>Let's not deal with the weather today.</p>
+            </>
+        ) 
+    } else {
+        return (
+            <>
                 <img src={penguinCold} />
-                <p>Kinda chilly.</p>
-            </div>
+                <p className="tempText">It's {currentTemp}°C.</p>
+                <p>Definitely pants weather.</p>
+            </>
         )
         }
 }

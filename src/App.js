@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
+import React  from 'react';
+import moment from 'moment';
+//components
 import DropdownCountries from './components/DropdownCountries.js';
 import DropdownCities from "./components/DropdownCities.js";
-import './App.css';
 import DisplayPicture from './components/DisplayPicture.js';
+import './App.scss';
+import SunNightAnimation from './components/SunNightAnimation';
+import WeatherConditionText from './components/WeatherConditionText';
 
 function App() {
   
@@ -18,11 +23,12 @@ function App() {
       latitude: selectCity.latitude ? selectCity.latitude : 52,
       longitude: selectCity.longitude ? selectCity.longitude : 52,
       current_weather: true,
+      timezone: "auto",
+      daily: "weathercode",
     })    
     const response = await fetch(url);
     const json = await response.json();
     setWeatherData(json);
-    console.log(json.current_weather)
   }
 
 
@@ -160,25 +166,37 @@ function App() {
     setLocations(locationsList);
   }, [selectCity]);
   
+  //getting hour of the day for night/day 
+  const numericalHour = weatherData && moment(weatherData.current_weather.time).format("k");
+  const nightDay = weatherData && weatherData && moment(weatherData.current_weather.time).format("k");
+  const weatherCondition = weatherData && weatherData.daily.weathercode[0];
+
   return (
-    <div className="App">
+    <div className={"App " + (numericalHour >= 8 && numericalHour <=17 ? 'dayTime' : 'nightTime')}>
+
       <div className="wrapper">
         <h1>Pants or Shorts</h1>
         <h2>What to wear today based on the weather</h2>
 
-        <h2>Choose a location:</h2>
+        <h3>Choose a location:</h3>
         <div className="dropdownContainer">
           <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
           <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
         </div>
-        {weatherData &&  
+      
+        <div className="displayImageContainer">
+          <div className="imageContainer">
+          {weatherData && 
+          <>
+            <DisplayPicture weatherData={weatherData} />
+            <WeatherConditionText condition={weatherCondition} />
+            <SunNightAnimation nightDay={nightDay}/>
+          </>
+          }             
+          </div>
+        </div>
 
-          <h3>The temperature is {weatherData.current_weather.temperature}° Celsius</h3>
-        }
-
-        {weatherData &&
-          <DisplayPicture currentTemp={weatherData.current_weather.temperature}/>
-        }
+        <footer>Made by Caryl Tan. Created at <a href="https://junocollege.com/">Juno College</a></footer>
       </div>
     </div>
   );  

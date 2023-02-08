@@ -1,6 +1,6 @@
 function DropdownCities ({ locations, selectCountry, getCityCoordinates }){
     return (
-        <div>
+        <>
             {locations && locations.map((location) => {
                 if (selectCountry === location.country) {
                     return (
@@ -18,7 +18,7 @@ function DropdownCities ({ locations, selectCountry, getCityCoordinates }){
                 }
             })
             }  
-        </div>
+        </>
     );
 }  
 
