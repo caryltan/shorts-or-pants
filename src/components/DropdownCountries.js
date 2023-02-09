@@ -1,7 +1,7 @@
 function DropdownCountries ({ locations, selectCountry, handleChange }){
     return (
         <>
-            <select onChange={handleChange} value={selectCountry} className="dropdown">
+            <select aria-label="Select Country" onChange={handleChange} value={selectCountry} className="dropdown">
             {
                 locations && locations.map((location, index) => {
                     return (

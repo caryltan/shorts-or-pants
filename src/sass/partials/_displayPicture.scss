@@ -1,0 +1,28 @@
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @media (max-width:428px) {
+      padding-top: 25px;
+    }
+  }
+  
+  .imageContainer img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    z-index: 1;
+  }
+
+  .displayImageContainer {
+    .imageContainer {
+        position: relative;
+    }
+    .sunMoonContainer{
+        position: absolute;
+        max-width: 125px;
+        left: 65%;
+        bottom: 0;
+      }
+    }
