@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import React  from 'react';
 import moment from 'moment';
+import {ErrorBoundary} from 'react-error-boundary';
 //components
 import DropdownCountries from './components/DropdownCountries.js';
 import DropdownCities from "./components/DropdownCities.js";
@@ -134,15 +135,21 @@ function App() {
     ]
   //getting hour of the day for night/day 
   const numericalHour = weatherData && moment(weatherData.current_weather.time).format("k");
-  const nightDay = weatherData && weatherData && moment(weatherData.current_weather.time).format("k");
   const weatherCondition = weatherData && weatherData.daily.weathercode[0];
 
+  const FallbackComponent = () => {
+    return (
+      <div>
+        <h2>An error occurred.</h2>
+      </div>
+    );
+  };
 
   async function getWeatherData(selectCity) {
     const url = new URL('https://api.open-meteo.com/v1/forecast');
     url.search = new URLSearchParams({
-      latitude: selectCity.latitude ? selectCity.latitude : 52,
-      longitude: selectCity.longitude ? selectCity.longitude : 52,
+      latitude: selectCity.latitude ? selectCity.latitude : 43.70,
+      longitude: selectCity.longitude ? selectCity.longitude : -79.42,
       current_weather: true,
       timezone: "auto",
       daily: "weathercode",
@@ -162,8 +169,8 @@ function App() {
   }
 
   const getCityCoordinates = (e) => {
-    locationsList.map((country, index) => {
-      country.cities.map((city, index) => {
+    locationsList.map((country) => {
+      country.cities.map((city) => {
         if (e.target.value === city.cityname) {
           setSelectedCity(city);
         }
@@ -175,13 +182,20 @@ function App() {
     <div className={"App " + (numericalHour >= 8 && numericalHour <=17 ? 'dayTime' : 'nightTime')}>
 
       <div className="wrapper">
-        <h1>Pants or Shorts</h1>
-        <h2>What to wear today based on the weather</h2>
+        <header>
+          <h1>Pants or Shorts</h1>
+          <h2>What to wear today based on the weather</h2>
+        </header>
 
         <h3>Choose a location:</h3>
         <main className="dropdownContainer">
+        <ErrorBoundary FallbackComponent={FallbackComponent}>
           <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
+        </ErrorBoundary>
+
+        <ErrorBoundary FallbackComponent={FallbackComponent}>
           <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
+        </ErrorBoundary>
         </main>
       
         <section className="displayImageContainer">
@@ -190,7 +204,7 @@ function App() {
           <>
             <DisplayPicture weatherData={weatherData} />
             <WeatherConditionText condition={weatherCondition} />
-            <SunNightAnimation nightDay={nightDay}/>
+            <SunNightAnimation nightDay={numericalHour}/>
           </>
           }             
           </div>

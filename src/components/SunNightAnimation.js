@@ -9,7 +9,7 @@ function SunNightAnimation ( nightDay ) {
         return (
             <motion.div 
             key={sun}
-            animate={{ y: -350 }}
+            animate={{ y: -300 }}
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={sun} className="sunMoon"/>
@@ -19,7 +19,7 @@ function SunNightAnimation ( nightDay ) {
         return (
             <motion.div 
             key={sun}
-            animate={{ y: -300 }}
+            animate={{ y: -350 }}
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={sun} className="sunMoon"/>
@@ -29,7 +29,7 @@ function SunNightAnimation ( nightDay ) {
         return (
             <motion.div 
             key={moon}
-            animate={{ y: -300 }}
+            animate={{ y: -350 }}
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={moon} className="sunMoon"/>
@@ -39,7 +39,7 @@ function SunNightAnimation ( nightDay ) {
         return (
             <motion.div 
             key={moon}
-            animate={{ y: -300 }}
+            animate={{ y: -350 }}
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={moon} className="sunMoon"/>
@@ -49,7 +49,7 @@ function SunNightAnimation ( nightDay ) {
         return (
             <motion.div 
             key={moon}
-            animate={{ y: -350 }} 
+            animate={{ y: -300 }} 
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={moon} className="sunMoon"/>
@@ -59,7 +59,7 @@ function SunNightAnimation ( nightDay ) {
         return (
             <motion.div 
             key={moon}
-            animate={{ y: -350 }} 
+            animate={{ y: -300 }} 
             transition={{ ease: "easeOut", duration: 1 }}
             className="sunMoonContainer">
                 <img src={moon} className="sunMoon"/>
