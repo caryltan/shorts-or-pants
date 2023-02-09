@@ -1,4 +1,6 @@
+@use './variables' as *;
 @import url('https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@400;700&display=swap');
+
 
 .App {
   text-align: center;
@@ -10,21 +12,21 @@
     height: 100%;
   }
   &.dayTime {
-    background-color: #5fcaff;
-    color: #34312d;
+    background-color: $dayTime;
+    color: $dayTextColour;
     a {
       text-decoration: none;
       &:visited {
-        color: #34312d;
+        color: $dayTextColour;
       }
     }
   }
   &.nightTime{
-    background-color: #14110f;
-    color: #eff8e2;
+    background-color: $nightTime;
+    color: $nightTextColour;
     a {
       &:visited {
-        color: #eff8e2;
+        color: $nightTextColour;
       }
     }
   }

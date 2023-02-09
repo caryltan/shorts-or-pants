@@ -179,12 +179,12 @@ function App() {
         <h2>What to wear today based on the weather</h2>
 
         <h3>Choose a location:</h3>
-        <div className="dropdownContainer">
+        <main className="dropdownContainer">
           <DropdownCountries locations={locations} selectCountry={selectCountry} handleChange={handleChange}/> 
           <DropdownCities locations={locations} selectCountry={selectCountry} getCityCoordinates={getCityCoordinates}/>
-        </div>
+        </main>
       
-        <div className="displayImageContainer">
+        <section className="displayImageContainer">
           <div className="imageContainer">
           {weatherData && 
           <>
@@ -194,7 +194,7 @@ function App() {
           </>
           }             
           </div>
-        </div>
+        </section>
 
         <footer>Made by Caryl Tan. Created at <a href="https://junocollege.com/">Juno College</a></footer>
       </div>
