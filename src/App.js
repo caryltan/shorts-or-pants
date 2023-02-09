@@ -9,7 +9,7 @@ import DisplayPicture from './components/DisplayPicture.js';
 import SunNightAnimation from './components/SunNightAnimation';
 import WeatherConditionText from './components/WeatherConditionText';
 //styling
-import './sass/App.scss';
+import './sass/App.css';
 
 
 function App() {

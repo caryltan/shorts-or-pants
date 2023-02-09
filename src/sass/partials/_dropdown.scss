@@ -1,0 +1,23 @@
+.dropdown {
+    background-color: #eff8e2;
+    border: none;
+    padding: 10px 60px;
+  }
+  
+  .dropdownContainer {
+    display: flex;
+    justify-content: space-evenly;
+    @media (max-width:428px) {
+      flex-direction: column;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      .dropdown {
+        margin-bottom: 20px;
+        font-size: 1.5em;
+        width: 100%;
+        display: flex;
+        text-align: center;
+      }
+    }
+  }
