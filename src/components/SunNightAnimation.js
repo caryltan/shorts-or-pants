@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 
 function SunNightAnimation ( nightDay ) {
     const viewPortWidth = window.innerWidth;
-    console.log(viewPortWidth);
 
     if (viewPortWidth > 768 && nightDay.nightDay >= 8 && nightDay.nightDay <=17) {
         return (
